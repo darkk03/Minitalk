@@ -17,11 +17,11 @@
 #include <stdio.h>
 #include <unistd.h>
 
-int main_client(int argc, char **argv);
+//int main(int argc, char **argv);
 
 void send_signal(int pid, char *string, int len);
 
-int main_server();
+//int main(void);
 
 void handler(int sig);
 

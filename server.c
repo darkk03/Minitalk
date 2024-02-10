@@ -14,31 +14,28 @@
 
 void handler(int sig) 
 {
-
-    unsigned char buffer;
-    int bits_received;
-
-    buffer = 0;
-    bits_received = 0;
+    static unsigned char buffer = 0;
+    static int bits_received = 0;
 
     if (sig == SIGUSR1)
     {
-        buffer |= (1 << bits_received);
+        buffer |= (1 << (7 - bits_received));
     }
     bits_received++;
 
     if (bits_received == 8)
     {
-        printf("%c", buffer);
+        ft_putchar(buffer);
         buffer = 0;
         bits_received = 0;
     }
 }
 
-int main_server()
+int main(void)
 {
     int pid = getpid();
     ft_putnbr(pid);
+    write(1, "\n", 1);
     while (1)
     {
         signal(SIGUSR1, handler);

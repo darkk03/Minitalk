@@ -16,38 +16,33 @@ void send_signal(int pid, char *string, int len)
 {
     int i;
     int j;
-    int k;
     int bit;
 
     i = 0;
     while (i < len)
     {
-        j = 0;
-        while (j < 8)
+        j = 7;
+        while (j >= 0)
         {
             bit = (string[i] >> j) & 1;
-            k = 0;
-            while (k < 100000)
-            {
-                if (bit == 1)
-                    kill(pid, SIGUSR1);
-                else if(bit == 0)
-                    kill(pid, SIGUSR2);
-                k++;
-            }
-            j++;
+            if (bit == 1)
+                kill(pid, SIGUSR1);
+            else
+                kill(pid, SIGUSR2);
+            usleep(100); 
+            j--;
         }
         i++;
     }
 }
 
-int main_client(int argc, char **argv)
+int main(int argc, char **argv)
 {
 
     int pid;
     char *string;
 
-    if (argc == 2)
+    if (argc == 3)
     {
         pid = ft_atoi(argv[1]);
         string = argv[2];
