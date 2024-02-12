@@ -13,19 +13,19 @@
 #ifndef MINITALK_H
 # define MINITALK_H
 
-#include <signal.h>
-#include <stdio.h>
-#include <unistd.h>
+# include <signal.h>
+# include <stdio.h>
+# include <unistd.h>
 
-//int main(int argc, char **argv);
+// int main(int argc, char **argv);
 
-void send_signal(int pid, char *string, int len);
+void	send_signal(int pid, char *string, int len);
 
-//int main(void);
+// int main(void);
 
-void handler(int sig);
+void	handler(int sig);
 
-int	ft_atoi(const char *str);
+int		ft_atoi(const char *str);
 
 size_t	ft_strlen(const char *string);
 

@@ -6,7 +6,7 @@
 /*   By: aaizenbe <aaizenbe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 20:34:55 by aaizenbe          #+#    #+#             */
-/*   Updated: 2024/02/09 20:34:55 by aaizenbe         ###   ########.fr       */
+/*   Updated: 2024/02/12 10:44:47 by aaizenbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,5 @@ void	ft_putnbr(long long n)
 
 void	ft_putchar(char c)
 {
-    write(1, &c, 1);
+	write(1, &c, 1);
 }
